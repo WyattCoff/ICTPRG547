@@ -23,12 +23,14 @@ namespace ICTPRG547_Assessment1_WyattCoff
         /// <summary>
         /// Default constructor initializing default values for StudentID, Program, and DateRegistered.
         /// </summary>
-        public Student()
+        public Student() : base()
         {
             StudentID = DEFAULT_STUDENT_ID;
             Program = DEFAULT_PROGRAM;
             DateRegistered = DEFAULT_DATE_REGISTERED;
         }
+
+
 
         /// <summary>
         /// Constructor initializing the student with specific values.
@@ -76,7 +78,7 @@ namespace ICTPRG547_Assessment1_WyattCoff
             }
 
             Student other = (Student)obj;
-            return this.StudentID == other.StudentID && this.Program == other.Program && this.DateRegistered == other.DateRegistered;
+            return this.StudentID == other.StudentID;
         }
 
         /// <summary>
@@ -152,14 +154,7 @@ namespace ICTPRG547_Assessment1_WyattCoff
         /// <returns>A value that shows the relative order of the students being compared.</returns>
         public int CompareTo(Student other)
         {
-            switch (compareParameter)
-            {
-                case "studentID":
-                    return this.StudentID.CompareTo(other.StudentID);
-                case "date":
-                default:
-                    return this.DateRegistered.CompareTo(other.DateRegistered);
-            }
+            return this.StudentID.CompareTo(other.StudentID);
         }
     }
 }

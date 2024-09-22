@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ICTPRG547_Assessment1_WyattCoff
 {
@@ -13,21 +9,17 @@ namespace ICTPRG547_Assessment1_WyattCoff
         private const GradeEnum DEFAULT_GRADE = GradeEnum.NotProvided;
         private static readonly Subject DEFAULT_SUBJECT = new Subject();
 
-        // Instance variables
-        private DateTime? dateEnrolled;
-        private GradeEnum grade;
-        private SemesterEnum semester;
-        private Subject subject;
+        // Public properties for enrollment details
+        public DateTime? DateEnrolled { get; set; }
+        public GradeEnum Grade { get; set; }
+        public SemesterEnum Semester { get; set; }
+        public Subject Subject { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the Enrollment class with default values.
         /// </summary>
-        public Enrollment()
+        public Enrollment() : this(DateTime.MinValue, DEFAULT_GRADE, DEFAULT_SEMESTER, new Subject())
         {
-            dateEnrolled = null;
-            grade = DEFAULT_GRADE;
-            semester = DEFAULT_SEMESTER;
-            subject = DEFAULT_SUBJECT;
         }
 
         /// <summary>
@@ -39,10 +31,10 @@ namespace ICTPRG547_Assessment1_WyattCoff
         /// <param name="subject">The subject the student enrolled in.</param>
         public Enrollment(DateTime dateEnrolled, GradeEnum grade, SemesterEnum semester, Subject subject)
         {
-            this.dateEnrolled = dateEnrolled;
-            this.grade = grade;
-            this.semester = semester;
-            this.subject = subject;
+            DateEnrolled = dateEnrolled;
+            Grade = grade;
+            Semester = semester;
+            Subject = subject;
         }
 
         /// <summary>
@@ -66,26 +58,6 @@ namespace ICTPRG547_Assessment1_WyattCoff
         }
 
         /// <summary>
-        /// Gets or sets the date the student enrolled in the subject.
-        /// </summary>
-        public DateTime? DateEnrolled { get; set; }
-
-        /// <summary>
-        /// Gets or sets the grade received for the subject.
-        /// </summary>
-        public GradeEnum Grade { get; set; }
-
-        /// <summary>
-        /// Gets or sets the semester during which the subject was enrolled in.
-        /// </summary>
-        public SemesterEnum Semester { get; set; }
-
-        /// <summary>
-        /// Gets or sets the subject the student enrolled in.
-        /// </summary>
-        public Subject Subject { get; set; }
-
-        /// <summary>
         /// Returns a string that contains the current enrollment.
         /// </summary>
         /// <returns>
@@ -93,8 +65,11 @@ namespace ICTPRG547_Assessment1_WyattCoff
         /// </returns>
         public override string ToString()
         {
-            return $"Enrolled on: {DateEnrolled}, Grade: {Grade}, Semester: {Semester}, Subject: {Subject}";
+            string enrolledDate = DateEnrolled.HasValue && DateEnrolled != DateTime.MinValue ? DateEnrolled.Value.ToShortDateString() : "Not Enrolled";
+            return $"[Date Enrolled: {enrolledDate}, Grade: {Grade}, Semester: {Semester}, Subject: {Subject}]";
         }
+
     }
 }
+
 

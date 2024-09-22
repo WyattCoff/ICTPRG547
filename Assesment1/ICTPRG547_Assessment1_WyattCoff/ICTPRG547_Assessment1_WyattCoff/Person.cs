@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using System;
-
 namespace ICTPRG547_Assessment1_WyattCoff
 {
     public class Person
@@ -14,7 +12,6 @@ namespace ICTPRG547_Assessment1_WyattCoff
         private const string DEFAULT_NAME = "No Name Provided";
         private const string DEFAULT_EMAIL = "No Email Provided";
         private const string DEFAULT_PHONE_NUMBER = "No Phone Number Provided";
-        private static readonly Address DEFAULT_ADDRESS = new Address();
 
         // Instance variables for person details
         private string name;
@@ -25,12 +22,9 @@ namespace ICTPRG547_Assessment1_WyattCoff
         /// <summary>
         /// Default constructor that initializes a person with default values.
         /// </summary>
-        public Person()
+        public Person() : this(DEFAULT_NAME, DEFAULT_EMAIL, DEFAULT_PHONE_NUMBER, new Address())
         {
-            name = DEFAULT_NAME;
-            email = DEFAULT_EMAIL;
-            phoneNumber = DEFAULT_PHONE_NUMBER;
-            address = DEFAULT_ADDRESS;
+            // No additional logic required.
         }
 
         /// <summary>
@@ -94,5 +88,6 @@ namespace ICTPRG547_Assessment1_WyattCoff
         }
     }
 }
+
 
 

@@ -15,23 +15,18 @@ namespace ICTPRG547_Assessment1_WyattCoff
         private const string DEF_POSTCODE = "No Postcode Provided";
         private const string DEF_STATE = "No State Provided";
 
-        // Instance variables for address details
-        private string streetNum;
-        private string streetName;
-        private string suburb;
-        private string postcode;
-        private string state;
+        // Public properties for address details
+        public string StreetNum { get; set; }
+        public string StreetName { get; set; }
+        public string Suburb { get; set; }
+        public string Postcode { get; set; }
+        public string State { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Address"/> class with default values.
         /// </summary>
-        public Address()
+        public Address() : this(DEF_STREET_NUM, DEF_STREET_NAME, DEF_SUBURB, DEF_POSTCODE, DEF_STATE)
         {
-            streetNum = DEF_STREET_NUM;
-            streetName = DEF_STREET_NAME;
-            suburb = DEF_SUBURB;
-            postcode = DEF_POSTCODE;
-            state = DEF_STATE;
         }
 
         /// <summary>
@@ -44,37 +39,12 @@ namespace ICTPRG547_Assessment1_WyattCoff
         /// <param name="state">The state of the address.</param>
         public Address(string streetNum, string streetName, string suburb, string postcode, string state)
         {
-            this.streetNum = streetNum;
-            this.streetName = streetName;
-            this.suburb = suburb;
-            this.postcode = postcode;
-            this.state = state;
+            StreetNum = streetNum;
+            StreetName = streetName;
+            Suburb = suburb;
+            Postcode = postcode;
+            State = state;
         }
-
-        /// <summary>
-        /// Gets or sets the street number of the address.
-        /// </summary>
-        public string StreetNum { get; set; }
-
-        /// <summary>
-        /// Gets or sets the street name of the address.
-        /// </summary>
-        public string StreetName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the suburb of the address.
-        /// </summary>
-        public string Suburb { get; set; }
-
-        /// <summary>
-        /// Gets or sets the postcode of the address.
-        /// </summary>
-        public string Postcode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the state of the address.
-        /// </summary>
-        public string State { get; set; }
 
         /// <summary>
         /// Returns a string that represents the current address.
@@ -88,5 +58,6 @@ namespace ICTPRG547_Assessment1_WyattCoff
         }
     }
 }
+
 
 

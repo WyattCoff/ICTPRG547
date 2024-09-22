@@ -21,12 +21,11 @@ namespace ICTPRG547_Assessment1_WyattCoff
         /// <summary>
         /// Initializes a new instance of the <see cref="Subject"/> class with default values.
         /// </summary>
-        public Subject()
+        public Subject() : this(DEFAULT_SUBJECT_CODE, DEFAULT_SUBJECT_NAME, DEFAULT_COST)
         {
-            subjectCode = DEFAULT_SUBJECT_CODE;
-            subjectName = DEFAULT_SUBJECT_NAME;
-            cost = DEFAULT_COST;
+            // No additional logic required.
         }
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Subject"/> class with the specified subject code, subject name, and cost.

@@ -10,6 +10,33 @@ namespace ICTPRG547_Assessment1_WyattCoff
     {
         static void Main(string[] args)
         {
+            // Test Address class
+            Console.WriteLine("Testing Address Class:");
+            var address = new Address("123", "Main St", "Adelaide", "5000", "SA");
+            Console.WriteLine($"Address: {address.ToString()}");
+
+            // Test Subject class
+            Console.WriteLine("\nTesting Subject Class:");
+            var subject = new Subject("COMP101", "Intro to Programming", 500m);
+            Console.WriteLine($"Subject: {subject.ToString()}");
+
+            // Test Enrollment class
+            Console.WriteLine("\nTesting Enrollment Class:");
+            var enrollment = new Enrollment(new DateTime(2024, 1, 15), Enrollment.GradeEnum.Pass, Enrollment.SemesterEnum.First, subject);
+            Console.WriteLine($"Enrollment: {enrollment.ToString()}");
+
+            // Modify Enrollment details
+            Console.WriteLine("\nModifying Enrollment Details:");
+            enrollment.DateEnrolled = new DateTime(2024, 2, 10);
+            enrollment.Grade = Enrollment.GradeEnum.Fail;
+            enrollment.Semester = Enrollment.SemesterEnum.Second;
+            Console.WriteLine($"Updated Enrollment: {enrollment.ToString()}");
+
+            // Test default constructor of Enrollment
+            Console.WriteLine("\nTesting Enrollment Default Constructor:");
+            var defaultEnrollment = new Enrollment();
+            Console.WriteLine($"Default Enrollment: {defaultEnrollment.ToString()}");
+
             // Create a list of students
             List<Student> students = new List<Student>
             {
@@ -20,7 +47,7 @@ namespace ICTPRG547_Assessment1_WyattCoff
             };
 
             // Test ToString
-            Console.WriteLine("Testing ToString:");
+            Console.WriteLine("\nTesting ToString for Students:");
             Console.WriteLine("Expected: Display all student details.");
             students.ForEach(student => Console.WriteLine(student.ToString()));
 
@@ -50,24 +77,10 @@ namespace ICTPRG547_Assessment1_WyattCoff
             Console.WriteLine($"Expected: Hash codes of first and second student should be different");
             Console.WriteLine($"Actual HashCode of second student: {students[1].GetHashCode()}");
 
-
-            // Set the comparison parameter (for example, using StudentID or DateRegistered)
-            Console.WriteLine("\nTesting CompareTo (Default by DateRegistered):");
-            Console.WriteLine("Expected: Students sorted by DateRegistered in ascending order.");
-            students.Sort(); // Sort by default compare (DateRegistered)
-            students.ForEach(student => Console.WriteLine(student.ToString()));
-
             // Change comparison parameter to studentID
             Console.WriteLine("\nTesting CompareTo (By StudentID):");
             Console.WriteLine("Expected: Students sorted by StudentID in ascending order.");
             Student.SetCompareParameter("studentID");
-            students.Sort();
-            students.ForEach(student => Console.WriteLine(student.ToString()));
-
-            // Change comparison parameter to DateRegistered
-            Console.WriteLine("\nTesting CompareTo (By DateRegistered):");
-            Console.WriteLine("Expected: Students sorted by DateRegistered in ascending order.");
-            Student.SetCompareParameter("date");
             students.Sort();
             students.ForEach(student => Console.WriteLine(student.ToString()));
 

@@ -58,6 +58,3 @@ namespace ICTPRG547_Assessment1_WyattCoff
         }
     }
 }
-
-
-

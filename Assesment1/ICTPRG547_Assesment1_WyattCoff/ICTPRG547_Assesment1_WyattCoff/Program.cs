@@ -85,6 +85,7 @@ namespace ICTPRG547_Assessment1_WyattCoff
             students.ForEach(student => Console.WriteLine(student.ToString()));
 
             Console.ReadKey();
+
         }
     }
 }

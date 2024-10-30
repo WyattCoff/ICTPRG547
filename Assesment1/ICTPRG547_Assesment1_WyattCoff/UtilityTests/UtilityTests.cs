@@ -33,18 +33,20 @@ namespace ICTPRG547_Assessment1_WyattCoff.Tests
         [Test]
         public void TestLinearSearch_Found()
         {
-            // Expected outcome: The linear search should find the student and return true.
-            bool isFound = Utility.LinearSearchArray(students, students[0]);
-            Assert.IsTrue(isFound);  // Should return true for a found student
+            // Expected outcome: The linear search should find the student and return their Found (0 in this case).
+            int Found = Utility.LinearSearchArray(students, students[0]);
+            Assert.AreEqual(0, Found);  // Should return the Found of the found student (0 if found at the beginning)
         }
+
         [Test]
         public void TestLinearSearch_NotFound()
         {
-            // Expected outcome: The linear search should not find the student and return false.
+            // Expected outcome: The linear search should return -1 for a non-existent student.
             var nonExistentStudent = new Student("NonExistent", "nonexistent@example.com", "0000000000", new Address(), "9999", "NonExistingProgram", DateTime.MinValue);
-            bool isFound = Utility.LinearSearchArray(students, nonExistentStudent);
-            Assert.IsFalse(isFound);  // Should return false for a non-existent student
+            int Found = Utility.LinearSearchArray(students, nonExistentStudent);
+            Assert.AreEqual(-1, Found);  // Should return -1 for a non-existent student
         }
+
 
         [Test]
         public void TestBinarySearch_Found()

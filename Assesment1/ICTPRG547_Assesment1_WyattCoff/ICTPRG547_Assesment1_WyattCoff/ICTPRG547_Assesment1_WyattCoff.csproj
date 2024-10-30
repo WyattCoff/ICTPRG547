@@ -45,6 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adress.cs" />
+    <Compile Include="BinaryTree.cs" />
+    <Compile Include="BinaryTreeNode.cs" />
+    <Compile Include="DoubleLinkedList.cs" />
+    <Compile Include="DoublyLinkedListNode.cs" />
+    <Compile Include="SingleLinkedList.cs" />
+    <Compile Include="SingleLinkedListNode.cs" />
     <Compile Include="Enrollment.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
